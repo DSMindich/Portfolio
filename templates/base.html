@@ -4,7 +4,9 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <title>DSM Coding</title>
+    <title>
+      {{title}}
+    </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500|Open+Sans:300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../docs/style.css">
@@ -17,13 +19,13 @@
   </button>
 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">About <span class="sr-only">(current)</span></a>
+      <li class="nav-item {{active_home}}">
+        <a class="nav-link" href="index.html">About</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item {{active_blog}}">
         <a class="nav-link" href="blog.html">Blog</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item {{active_port}}">
         <a class="nav-link" href="port.html">Portfolio</a>
       </li>
       <!-- I'll add the homebrewing blog page later
@@ -43,3 +45,15 @@
     </form> /-->
   </div>
  </nav>
+ {{content}}
+</div>
+<!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  </div>
+</body>
