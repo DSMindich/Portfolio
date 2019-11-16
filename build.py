@@ -27,7 +27,7 @@ def main():
 
     #adds the header and footer to each content page
 def apply_base():
-    active_page = apply_active()
+    active_page = apply_active(apply_title())
     page_name = page["filename"]
     content = open(page_name).read()
     full_page = active_page.replace("{{content}}", content)
@@ -41,22 +41,19 @@ def apply_title():
     return entitled_page
 
     #makes the active page black in the nav
-def apply_active():
-    entitled_page = apply_title()
+    #I don't understand the usefulness of using arguemnts with this... although
+    #  I guess maybe I could change the order that these happen if I made them 
+    # all work via arguments? I can update the rest for next homework need to move on
+def apply_active(titled_page):
     activator = page["active"]
-    active_page= entitled_page.replace(activator, "active")
+    active_page= titled_page.replace(activator, "active")
     return active_page
-
-    #apologizes in terminal for not putting arguments in my other functions
-def argument(name,msg):
-    print("Sorry", name, ",", msg, "figure out where an argument made sense in my other functions.")    
 
 # Script
 
 for page in pages:
      apply_title()
-     apply_active()
+     apply_active(apply_title())
      apply_base()
      if __name__ == "__main__":
         main()
-argument("Teach", "I couldn't")
