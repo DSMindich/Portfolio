@@ -5,7 +5,7 @@ import os
 
 #Functions
     #Initiates script
-def main():
+def initiate():
     generate_list()
     apply_template()
 
@@ -23,7 +23,7 @@ def generate_list():
             {
             "filename" : file_path,
             "title" : name_only,
-            "output" : "docs/"+file_name,
+            "output" : file_name,
             },
         )
     return pages 
@@ -32,7 +32,7 @@ def generate_list():
 def apply_template():
     for page in generate_list():
         page_title = page["title"]
-        final_file = page["output"]
+        final_file = "docs/" + page["output"]
         content_path = page["filename"]
 
         content_html = open(content_path).read()
@@ -42,12 +42,13 @@ def apply_template():
         output = template.render(
             title= page_title,
             content=content_html,
+            pages = generate_list() #using this for nav generator-- is it now impossible 
+            #to set a standard nav order? Had to change index.html file to "about.html" to keep it first
             )
 
         open(final_file, 'w+').write(output)
-# Script
-if __name__ == "__main__":
-    main()
+
+
 
 
 
